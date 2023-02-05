@@ -278,13 +278,14 @@ resource "aws_lb_target_group_attachment" "lb-tg-attach-3" {
 
 # Export IP addresses of the 3 instances to host-inventory file
 
-resource "local_file" "ip_address" {
-  filename = "/home/abdul-barri/terraform/altschool-exercises/host-inventory"
-  content  = <<EOT
-  ${aws_instance.apache-server-1.public_ip}
-  ${aws_instance.apache-server-2.public_ip}
-  ${aws_instance.apache-server-3.public_ip}
-    EOT
+resource "null_resource" "write_ips_to_file" {
+  provisioner "local-exec" {
+    command = "echo ${join(",", aws_instance.apache-server.*.public_ips)} > inventory"
+  }
+}
+
+output "public_ips" {
+  value = local.public_ips
 }
 
 # Route 53 and sub-domain name setup
