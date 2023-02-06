@@ -1,0 +1,14 @@
+[33mΓò╖[0m[0m
+[33mΓöé[0m [0m[1m[33mWarning: [0m[0m[1mNo outputs found[0m
+[33mΓöé[0m [0m
+[33mΓöé[0m [0m[0mThe state file either has no outputs
+[33mΓöé[0m [0mdefined, or all the defined outputs are
+[33mΓöé[0m [0mempty. Please define an output in your
+[33mΓöé[0m [0mconfiguration with the `output` keyword
+[33mΓöé[0m [0mand run `terraform refresh` for it to
+[33mΓöé[0m [0mbecome available. If you are using
+[33mΓöé[0m [0minterpolation, please verify the
+[33mΓöé[0m [0minterpolated value is not empty. You can
+[33mΓöé[0m [0muse the `terraform console` command to
+[33mΓöé[0m [0massist.
+[33mΓò╡[0m[0m

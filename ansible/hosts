@@ -1,0 +1,12 @@
+[webserver]
+{{ lookup('file', 'inventory') }}
+
+[webserver:vars]
+ansible_connection=ssh
+ansible_user=ubuntu
+
+[webserver:children]
+tasks
+
+[tasks]
+localhost ansible_connection=local
