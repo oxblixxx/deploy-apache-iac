@@ -1,0 +1,38 @@
+---
+- name: Set up apache on servers, set timezones
+  hosts: all
+  become: yes
+  remote_user: ubuntu
+
+  tasks:
+    - name: Install Apache
+      apt: 
+        - name=apache2 
+        - update_cache=yes 
+      state = present
+
+    - name: Get instance IP address
+      shell: hostname -I
+      register: ip_address
+
+    - name: timezone  Africa/Lagos
+      timezone: name = Africa/Lagos
+
+    - name: pull instance timezone
+      shell: echo $(timedatectl | grep "Time zone")
+      register: timezone
+
+    - name:  HTML page display instance timezone and IP address
+      copy:
+        dest: /var/www/html/index.html
+        content: |
+          <html>
+            <head>
+              <title>My Server Hostname and Time</title>
+            </head>
+            <body>
+              <p>My server hostname is: {{ ip_address.stdout }} </p>
+              <p>The current timezone: {{ timezone.stdout }}</p>
+              <p>omo!!!!!!!!!!!!!!!!!!!!</p>
+            </body>
+          </html>
