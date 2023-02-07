@@ -4,5 +4,5 @@
 # Run Terraform in the ./modules as well to install the modules dependacies
 # then run Terraform plan
 # Terraform apply
-# lb url = https://http://oxlava-2141385314.us-east-2.elb.amazonaws.com/
+# lb url = http://oxlava-2141385314.us-east-2.elb.amazonaws.com/
 # web url = https://www.oxlava.live
